@@ -6,6 +6,7 @@ extractInformation::extractInformation()
 	fileName = "user.csv";
 
 	operate();
+	print();
 }
 
 void extractInformation::splitString(const string& s, vector<string>& v, const string& c)
@@ -110,7 +111,10 @@ void extractInformation::operate()
 		}
 
 	}
+}
 
+void extractInformation::print()
+{
 	ofstream outfile("test.json");
 	outfile << "{" << endl << "\"nodes\":[" << endl;
 	for (int i = 0; i < list.size(); i++)

@@ -26,9 +26,12 @@ public:
 	extractInformation();
 	~extractInformation() {}
 
-private:
 	void operate();//进行信息的提取
+
+private:
 	void splitString(const string& s, vector<string>& v, const string& c);//分割字符串
+	void print();//将提取结果输出到文件中
+
 
 	vector<hash_map<string, int>> reviewersList;//每个电影对应的影评人名单
 	vector<movieData> list;//存储提取得到的的图的信息
