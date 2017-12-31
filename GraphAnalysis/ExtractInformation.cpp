@@ -33,6 +33,7 @@ void extractInformation::operate()
 	string movieName = "";//电影名
 	int ID = -1;//电影编号
 	int num = 0;
+
 	vector<string> tempLineData;//每一行的两个数据
 
 	ifstream infile(fileName);//打开文件
@@ -73,6 +74,7 @@ void extractInformation::operate()
 				}
 
 			}
+			newMovie.betweenness = 0;
 			list.push_back(newMovie);
 		}
 

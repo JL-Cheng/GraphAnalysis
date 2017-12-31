@@ -2,6 +2,7 @@
 #define PRIM_H
 #include <iostream>
 #include <vector>
+#include <fstream>
 #include "ExtractInformation.h"
 using namespace std;
 
@@ -16,7 +17,7 @@ public:
 	
 	void findST();	//	将最小生成树存在tree里面，主函数
 	void find(int* feature, int* last, int start, int num, int n);	//	递归操作
-	
+	void print();	//	输出到json
 };
 
 
