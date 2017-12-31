@@ -1,4 +1,4 @@
-//ÓÃDijkstra Ëã·¨ÇóÁ½µã¼ä×î¶ÌÂ·¾¶
+//ç”¨Dijkstra ç®—æ³•æ±‚ä¸¤ç‚¹é—´æœ€çŸ­è·¯å¾„
 
 #pragma once
 #ifndef SHORTESTPATH_H
@@ -8,12 +8,12 @@
 
 struct node
 {
-	int ID;//ÊıÖµ
-	int pre_ID;//Ç°Ò»¸ö¶¥µãÊıÖµ
-	int min_len;//ÓëÇ°Ò»¸öµãµÄ×î¶Ì¾àÀë
-	int final_length;//µ½´ïÕâ¸öµã×ßµÄ³¤¶È
-	bool used;//ÊÇ·ñÒÑ×ß¹ı¸Ãµê
-	vector<int> path;//´æ´¢×ßµ½¸ÃµãµÄÂ·¾¶
+	int ID;//æ•°å€¼
+	int pre_ID;//å‰ä¸€ä¸ªé¡¶ç‚¹æ•°å€¼
+	int min_len;//ä¸å‰ä¸€ä¸ªç‚¹çš„æœ€çŸ­è·ç¦»
+	int final_length;//åˆ°è¾¾è¿™ä¸ªç‚¹èµ°çš„é•¿åº¦
+	bool used;//æ˜¯å¦å·²èµ°è¿‡è¯¥åº—
+	vector<int> path;//å­˜å‚¨èµ°åˆ°è¯¥ç‚¹çš„è·¯å¾„
 };
 
 class searchShortestPath
@@ -24,11 +24,13 @@ public:
 
 	void toFindShortestPath();
 
+	bool checkIfOk();  //è¡¨ç¤ºæ˜¯å¦æ‰¾åˆ°è·¯å¾„
+
 private:
 	void printShortestPath();
 	extractInformation information;
-	vector<movieData> shortestPathList;//´æ´¢ÌáÈ¡µÃµ½µÄµÄÍ¼µÄĞÅÏ¢
-	vector<int> shortestPath;//×î¶ÌÂ·¾¶´æ·ÅÏòÁ¿
+	vector<movieData> shortestPathList;//å­˜å‚¨æå–å¾—åˆ°çš„çš„å›¾çš„ä¿¡æ¯
+	vector<int> shortestPath;//æœ€çŸ­è·¯å¾„å­˜æ”¾å‘é‡
 };
 
 #endif // !SHORTESTPATH_H

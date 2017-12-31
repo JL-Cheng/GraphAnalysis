@@ -19,6 +19,7 @@ typedef struct movieData
 	string movieName;//电影名
 	vector<pair<int, int>> connectNode;//与该结点相连接的结点，pair的第一个值为连接结点的ID，第二个值为权值
 	int group;
+	int betweenness;	//介数中心度
 };
 
 class extractInformation
