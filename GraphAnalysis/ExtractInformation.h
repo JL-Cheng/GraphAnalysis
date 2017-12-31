@@ -18,6 +18,7 @@ typedef struct movieData
 	int ID;//编号
 	string movieName;//电影名
 	vector<pair<int, int>> connectNode;//与该结点相连接的结点，pair的第一个值为连接结点的ID，第二个值为权值
+	int group;
 };
 
 class extractInformation
@@ -27,6 +28,7 @@ public:
 	~extractInformation() {}
 
 	void operate();//进行信息的提取
+	static vector<movieData> list;//存储提取得到的的图的信息
 
 private:
 	void splitString(const string& s, vector<string>& v, const string& c);//分割字符串
@@ -34,7 +36,7 @@ private:
 
 
 	vector<hash_map<string, int>> reviewersList;//每个电影对应的影评人名单
-	vector<movieData> list;//存储提取得到的的图的信息
+
 	string fileName;//信息存储的文件名
 };
 

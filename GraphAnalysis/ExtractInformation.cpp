@@ -1,6 +1,8 @@
 #include"ExtractInformation.h"
 #include<fstream>
 
+vector<movieData> extractInformation::list;
+
 extractInformation::extractInformation()
 {
 	fileName = "user.csv";
