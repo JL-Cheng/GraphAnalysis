@@ -46,7 +46,7 @@ void searchShortestPath::toFindShortestPath()
 		{
 			if (b != operate_ID&&p_node[b].used == false)
 			{
-				int temp_length=Max_Int;//存放b与operate_ID之间的距离
+				int temp_length = Max_Int;//存放b与operate_ID之间的距离
 				for (int j = 0; j < shortestPathList[operate_ID].connectNode.size(); j++)
 				{
 					if (shortestPathList[operate_ID].connectNode[j].first == b)
@@ -86,6 +86,7 @@ void searchShortestPath::toFindShortestPath()
 			p_node[b].final_length = p_node[p_node[b].pre_ID].final_length + p_node[b].min_len;
 			if (p_node[b].ID == end_ID)
 			{
+				shortestPath = p_node[b].path;
 				cout << "[" << p_node[b].path[0];
 				shortestPathList[p_node[b].path[0]].group = 1;
 				for (int i = 1; i < p_node[b].path.size(); i++)
@@ -134,7 +135,24 @@ void searchShortestPath::printShortestPath()
 			outfile << shortestPathList[i].connectNode[j].second;
 			if (shortestPathList[i].group == 1 && shortestPathList[shortestPathList[i].connectNode[j].first].group == 1)
 			{
-				outfile << ", \"color\": 2";
+				for (int k = 0; k < shortestPath.size(); k++)
+				{
+					if (shortestPath[k] == shortestPathList[i].ID)
+					{
+						if (k == shortestPath.size() - 1 && shortestPath[k - 1] == shortestPathList[shortestPathList[i].connectNode[j].first].ID)
+							outfile << ", \"color\": 2";
+						else if (k == 0 && shortestPath[k + 1] == shortestPathList[shortestPathList[i].connectNode[j].first].ID)
+							outfile << ", \"color\": 2";
+						else if (k > 0 && k<shortestPath.size() - 1 &&
+							(shortestPath[k - 1] == shortestPathList[shortestPathList[i].connectNode[j].first].ID ||
+								shortestPath[k + 1] == shortestPathList[shortestPathList[i].connectNode[j].first].ID))
+							outfile << ", \"color\": 2";
+						else
+							outfile << ", \"color\": 1";
+					}
+					else
+						continue;
+				}
 			}
 			else
 			{

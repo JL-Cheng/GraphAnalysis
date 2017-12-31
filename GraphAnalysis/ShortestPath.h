@@ -28,6 +28,7 @@ private:
 	void printShortestPath();
 	extractInformation information;
 	vector<movieData> shortestPathList;//存储提取得到的的图的信息
+	vector<int> shortestPath;//最短路径存放向量
 };
 
 #endif // !SHORTESTPATH_H
