@@ -67,6 +67,12 @@
     <ClCompile Include="ExtractInformation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="prim.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShortestPath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="MainWindow.h">
@@ -93,6 +99,12 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="ExtractInformation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="prim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShortestPath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

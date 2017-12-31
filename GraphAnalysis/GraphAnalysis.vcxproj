@@ -89,6 +89,8 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="prim.cpp" />
+    <ClCompile Include="ShortestPath.cpp" />
     <ClCompile Include="WebsiteShow.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +121,8 @@
     <ClInclude Include="ExtractInformation.h" />
     <ClInclude Include="GeneratedFiles\ui_MainWindow.h" />
     <ClInclude Include="GeneratedFiles\ui_WebsiteShow.h" />
+    <ClInclude Include="prim.h" />
+    <ClInclude Include="ShortestPath.h" />
     <CustomBuild Include="WebsiteShow.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing WebsiteShow.h...</Message>
