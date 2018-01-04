@@ -13,16 +13,6 @@ searchShortestPath::searchShortestPath()
 	printShortestPath();
 }
 
-bool searchShortestPath::checkIfOk()
-{
-	if(shortestPathList.size() != 0)
-	{
-		return 1;
-	}
-	else
-		return 0;
-}
-
 void searchShortestPath::toFindShortestPath()
 {
 	int start_ID, end_ID, operate_ID;//开始顶点、结束顶点、正在操作结点
@@ -31,11 +21,13 @@ void searchShortestPath::toFindShortestPath()
 	vector<node> q_node;//已搜索的结点向量
 	node temp_node;//临时结点
 
+	cout << endl << shortestPathList.size();
 	cin >> start_ID >> end_ID;
 
 	//将结点集合添加到未搜索结点
 	for (int i = 0; i < shortestPathList.size(); i++)
 	{
+		temp_node.path.clear();
 		temp_node.ID = shortestPathList[i].ID;
 		temp_node.pre_ID = -1;
 		temp_node.min_len = Max_Int;
@@ -76,7 +68,6 @@ void searchShortestPath::toFindShortestPath()
 		if (min_length == Max_Int)
 		{
 			cout << "NO PATH";
-			shortestPathList.clear();	//	如果没有路径就清空向量
 			break;
 		}//没有道路
 		else

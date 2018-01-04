@@ -1,14 +1,9 @@
 #include"ExtractInformation.h"
 #include<fstream>
 
-vector<movieData> extractInformation::list;
-
 extractInformation::extractInformation()
 {
 	fileName = "user.csv";
-
-	operate();
-	print();
 }
 
 void extractInformation::splitString(const string& s, vector<string>& v, const string& c)
@@ -33,8 +28,8 @@ void extractInformation::operate()
 	string movieName = "";//电影名
 	int ID = -1;//电影编号
 	int num = 0;
-
 	vector<string> tempLineData;//每一行的两个数据
+	vector<string> movieNameFound;//已经找过的电影名，用于去重
 
 	ifstream infile(fileName);//打开文件
 	if (!infile.is_open())//打开文件失败，返回
@@ -52,12 +47,16 @@ void extractInformation::operate()
 
 		if (movieName != tempLineData[0])//新的电影名
 		{
+			if (find(movieNameFound.begin(), movieNameFound.end(), tempLineData[0]) != movieNameFound.end())
+				continue;
 			ID++;
 			movieName = tempLineData[0];
+			movieNameFound.push_back(movieName);
 
 			movieData newMovie;
 			newMovie.ID = ID;
 			newMovie.movieName = movieName;
+			newMovie.group = 0;
 
 			hash_map<string, int> newHashMap;
 			newHashMap.insert(pair<string, int>(tempLineData[1], ID));
@@ -74,7 +73,6 @@ void extractInformation::operate()
 				}
 
 			}
-			newMovie.betweenness = 0;
 			list.push_back(newMovie);
 		}
 
