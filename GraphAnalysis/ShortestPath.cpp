@@ -6,23 +6,22 @@
 
 searchShortestPath::searchShortestPath()
 {
-	information.operate();
+	//information.operate();
 	shortestPathList = information.list;
-
-	toFindShortestPath();
-	printShortestPath();
 }
 
-void searchShortestPath::toFindShortestPath()
+void searchShortestPath::search(int startPoint, int endPoint)
 {
 	int start_ID, end_ID, operate_ID;//开始顶点、结束顶点、正在操作结点
 	int min_length = Max_Int;//最短长度
 	vector<node> p_node;//未搜索的结点向量
 	vector<node> q_node;//已搜索的结点向量
+	QString result="";//结果字符串
 	node temp_node;//临时结点
 
 	cout << endl << shortestPathList.size();
-	cin >> start_ID >> end_ID;
+	start_ID = startPoint;
+	end_ID = endPoint;
 
 	//将结点集合添加到未搜索结点
 	for (int i = 0; i < shortestPathList.size(); i++)
@@ -44,6 +43,7 @@ void searchShortestPath::toFindShortestPath()
 
 	while (true)// Dijkstra 算法
 	{
+		msleep(5);
 		for (int b = 0; b < shortestPathList.size(); b++)
 		{
 			if (b != operate_ID&&p_node[b].used == false)
@@ -67,7 +67,7 @@ void searchShortestPath::toFindShortestPath()
 
 		if (min_length == Max_Int)
 		{
-			cout << "NO PATH";
+			result = "NO PATH";
 			break;
 		}//没有道路
 		else
@@ -89,14 +89,14 @@ void searchShortestPath::toFindShortestPath()
 			if (p_node[b].ID == end_ID)
 			{
 				shortestPath = p_node[b].path;
-				cout << "[" << p_node[b].path[0];
+				result = result + "[" + QString::number(p_node[b].path[0]);
 				shortestPathList[p_node[b].path[0]].group = 1;
 				for (int i = 1; i < p_node[b].path.size(); i++)
 				{
-					cout << " " << "->" << " " << p_node[b].path[i];
+					result = result + " -> " + QString::number(p_node[b].path[i]);
 					shortestPathList[p_node[b].path[i]].group = 1;
 				}
-				cout << " " << p_node[b].final_length << "]";
+				result = result + " " + QString::number(p_node[b].final_length) + "]";
 				break;
 			}
 			else
@@ -106,12 +106,46 @@ void searchShortestPath::toFindShortestPath()
 			}
 		}
 	}
+
+	//进行结点修饰
+	int num = 2;
+	for (int i = 0; i < shortestPathList.size(); i++)
+	{
+		if (shortestPathList[i].group == 0)
+		{
+			shortestPathList[i].group = num;
+			num++;
+		}
+	}
+
+	printShortestPath();
+
+	emit findResult(result);
 }
 
 void searchShortestPath::printShortestPath()
 {
-	ofstream outfile("shortestPath.json");
-	outfile << "{" << endl << "\"nodes\":[" << endl;
+	string tempLine, text1 = "", text2 = "";
+
+	ifstream infile1("text1.txt");
+	if (!infile1.is_open())//打开文件失败，返回
+		exit(-1);
+	while (getline(infile1, tempLine))
+	{
+		text1 += tempLine + "\n";
+	}
+
+	ifstream infile2("text2.txt");
+	if (!infile2.is_open())//打开文件失败，返回
+		exit(-1);
+	while (getline(infile2, tempLine))
+	{
+		text2 += tempLine + "\n";
+	}
+
+	ofstream outfile("shortestPath.html");
+	outfile << text1;
+	outfile << "var nodes=[" << endl;
 	for (int i = 0; i < shortestPathList.size(); i++)
 	{
 		if (i != 0)
@@ -122,7 +156,7 @@ void searchShortestPath::printShortestPath()
 		outfile << shortestPathList[i].group;
 		outfile << "}";
 	}
-	outfile << "]," << endl << "\"links\":[";
+	outfile << "];" << endl << "var links =[";
 	for (int i = 0; i < shortestPathList.size(); i++)
 	{
 		for (int j = 0; j < shortestPathList[i].connectNode.size(); j++)
@@ -163,5 +197,6 @@ void searchShortestPath::printShortestPath()
 			outfile << "}";
 		}
 	}
-	outfile << endl << "]" << endl << "}";
+	outfile << endl << "];";
+	outfile << text2;
 }

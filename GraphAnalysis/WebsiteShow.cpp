@@ -4,14 +4,17 @@ WebsiteShow::WebsiteShow(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
-
 	webview = new QWebEngineView(this);
-	webview->load(QUrl("http://localhost/projects/project_6/"));
-	webview->show();
 }
 
 WebsiteShow::~WebsiteShow()
 {
+}
+
+void WebsiteShow::showWeb(QString websitepath)
+{
+	webview->load(QUrl(websitepath));
+	webview->show();
 }
 
 void WebsiteShow::resizeEvent(QResizeEvent *)

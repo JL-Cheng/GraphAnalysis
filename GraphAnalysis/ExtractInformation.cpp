@@ -1,6 +1,8 @@
 #include"ExtractInformation.h"
 #include<fstream>
 
+vector<movieData> extractInformation::list;
+
 extractInformation::extractInformation()
 {
 	fileName = "user.csv";
@@ -36,8 +38,9 @@ void extractInformation::operate()
 		exit(-1);
 	while (getline(infile, tempLine))
 	{
+		msleep(5);
 		num++;
-		cout << num << " ";
+		emit sendRateOfProgress(num);
 		if (tempLine == "")
 			continue;
 		tempLineData.clear();

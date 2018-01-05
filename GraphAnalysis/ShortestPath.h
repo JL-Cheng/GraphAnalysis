@@ -5,6 +5,8 @@
 #define SHORTESTPATH_H
 #define _SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS 1
 #include"ExtractInformation.h"
+#include<QObject>
+#include <QThread>
 
 struct node
 {
@@ -16,15 +18,19 @@ struct node
 	vector<int> path;//存储走到该点的路径
 };
 
-class searchShortestPath
+class searchShortestPath:public QThread
 {
+	Q_OBJECT
+
 public:
 	searchShortestPath();
 	~searchShortestPath() {}
 
-	void toFindShortestPath();
+	public slots:
+	void search(int startPoint,int endPoint);
 
-	bool checkIfOk();  //表示是否找到路径
+signals:
+	void findResult(QString result);
 
 private:
 	void printShortestPath();

@@ -15,6 +15,9 @@ public:
 	WebsiteShow(QWidget *parent = Q_NULLPTR);
 	~WebsiteShow();
 
+	public slots:
+	void showWeb(QString websitepath);
+
 protected:
 	void resizeEvent(QResizeEvent*);
 

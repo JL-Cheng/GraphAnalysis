@@ -12,7 +12,8 @@ public:
 	double sumWayNum(int start, int end); //	计算从A到B的道路个数
 	double sumWayPro(int start, int end, int target); //	计算比例
 	double calBetweenness(int target);	//	计算target的中心度
-	void print();	//	输出到json中
+	void calMapBetweenness();
+	void print();	//	输出
 
 public:
 	double* resMap;//	每一个点的介数中心度

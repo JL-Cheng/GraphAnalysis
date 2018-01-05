@@ -9,6 +9,8 @@
 #include<iostream>
 #include<vector>
 #include<hash_map>
+#include<QObject>
+#include <QThread>
 using namespace std;
 using namespace stdext;
 
@@ -22,8 +24,10 @@ typedef struct movieData
 	int betweenness;	//介数中心度
 };
 
-class extractInformation
+class extractInformation:public QThread
 {
+	Q_OBJECT
+
 public:
 	extractInformation();
 	~extractInformation() {}
@@ -31,10 +35,12 @@ public:
 	void operate();//进行信息的提取
 	static vector<movieData> list;//存储提取得到的的图的信息
 
+signals:
+	void sendRateOfProgress(int number);//告知进程
+
 private:
 	void splitString(const string& s, vector<string>& v, const string& c);//分割字符串
 	void print();//将提取结果输出到文件中
-
 
 	vector<hash_map<string, int>> reviewersList;//每个电影对应的影评人名单
 
