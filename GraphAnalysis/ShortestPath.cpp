@@ -135,7 +135,7 @@ void searchShortestPath::printShortestPath()
 		text1 += tempLine + "\n";
 	}
 
-	ifstream infile2("text2.txt");
+	ifstream infile2("shortestPath_text2.txt");
 	if (!infile2.is_open())//打开文件失败，返回
 		exit(-1);
 	while (getline(infile2, tempLine))
@@ -151,7 +151,7 @@ void searchShortestPath::printShortestPath()
 		if (i != 0)
 			outfile << "," << endl;
 		outfile << "{\"id\":\"";
-		outfile << shortestPathList[i].movieName;
+		outfile << shortestPathList[i].ID << " " << shortestPathList[i].movieName;
 		outfile << "\", \"group\":";
 		outfile << shortestPathList[i].group;
 		outfile << "}";
@@ -164,9 +164,9 @@ void searchShortestPath::printShortestPath()
 			if (i != 0 || j != 0)
 				outfile << "," << endl;
 			outfile << "{\"source\":\"";
-			outfile << shortestPathList[i].movieName;
+			outfile << shortestPathList[i].ID << " " << shortestPathList[i].movieName;
 			outfile << "\", \"target\": \"";
-			outfile << shortestPathList[shortestPathList[i].connectNode[j].first].movieName;
+			outfile << shortestPathList[shortestPathList[i].connectNode[j].first].ID << " " << shortestPathList[shortestPathList[i].connectNode[j].first].movieName;
 			outfile << "\", \"value\":";
 			outfile << shortestPathList[i].connectNode[j].second;
 			if (shortestPathList[i].group == 1 && shortestPathList[shortestPathList[i].connectNode[j].first].group == 1)

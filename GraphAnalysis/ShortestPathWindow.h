@@ -20,6 +20,8 @@ public:
 	ShortestPathWindow(QWidget *parent = Q_NULLPTR);
 	~ShortestPathWindow();
 
+	QPushButton *returnButton;//·µ»Ø°´Å¥
+
 signals:
 	void searchShortestPath(int startPoint, int endPoint);
 

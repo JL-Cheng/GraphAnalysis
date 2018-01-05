@@ -4,10 +4,12 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include<QObject>
+#include <QThread>
 #include "ExtractInformation.h"
 using namespace std;
 
-class connected_component
+class connected_component:public QThread
 {
 public:
 	int threshold;		//	ãÐÖµ

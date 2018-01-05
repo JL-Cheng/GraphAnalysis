@@ -17,45 +17,45 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 var nodes=[
-{"id":"0 那年夏天你去了哪里", "group":2},
-{"id":"1 金矿", "group":1},
-{"id":"2 隐于书后", "group":1},
-{"id":"3 分裂", "group":3},
-{"id":"4 隐藏人物", "group":4},
-{"id":"5 夜色人生", "group":1},
-{"id":"6 梅格雷的亡者", "group":5},
-{"id":"7 绝对控制", "group":6},
-{"id":"8 生化危机：终章", "group":7},
+{"id":"0 那年夏天你去了哪里", "group":1},
+{"id":"1 金矿", "group":7},
+{"id":"2 隐于书后", "group":11},
+{"id":"3 分裂", "group":23},
+{"id":"4 隐藏人物", "group":3},
+{"id":"5 夜色人生", "group":6},
+{"id":"6 梅格雷的亡者", "group":16},
+{"id":"7 绝对控制", "group":8},
+{"id":"8 生化危机：终章", "group":32},
 {"id":"9 摆渡人", "group":8},
-{"id":"10 为什么是他？", "group":9},
-{"id":"11 刺客信条", "group":10},
-{"id":"12 太空旅客", "group":11},
-{"id":"13 金融决战", "group":12},
-{"id":"14 怪兽卡车", "group":13},
-{"id":"15 明日的我与昨日的你约会", "group":14},
-{"id":"16 罗曼蒂克消亡史", "group":15},
-{"id":"17 长城", "group":16},
-{"id":"18 星球大战外传：侠盗一号", "group":17},
-{"id":"19 附属美丽", "group":18},
-{"id":"20 藩篱", "group":19},
-{"id":"21 少年", "group":20},
+{"id":"10 为什么是他？", "group":15},
+{"id":"11 刺客信条", "group":9},
+{"id":"12 太空旅客", "group":10},
+{"id":"13 金融决战", "group":11},
+{"id":"14 怪兽卡车", "group":14},
+{"id":"15 明日的我与昨日的你约会", "group":18},
+{"id":"16 罗曼蒂克消亡史", "group":27},
+{"id":"17 长城", "group":14},
+{"id":"18 星球大战外传：侠盗一号", "group":23},
+{"id":"19 附属美丽", "group":22},
+{"id":"20 藩篱", "group":17},
+{"id":"21 少年", "group":18},
 {"id":"22 了不起的菲丽西", "group":21},
-{"id":"23 救命解药", "group":22},
-{"id":"24 28岁未成年", "group":1},
-{"id":"25 幽冥", "group":23},
-{"id":"26 鼹鼠之歌2：香港狂骚曲", "group":24},
-{"id":"27 潘多拉", "group":25},
-{"id":"28 性爱娃娃", "group":26},
-{"id":"29 安昙春子下落不明", "group":27},
-{"id":"30 超级快递", "group":28},
-{"id":"31 沉默", "group":29},
-{"id":"32 白百合", "group":30},
-{"id":"33 最萌身高差", "group":31},
-{"id":"34 大创业家", "group":32},
-{"id":"35 黑夜传说5：血战", "group":33},
-{"id":"36 潘菲洛夫28勇士", "group":34},
-{"id":"37 突然20岁", "group":35},
-{"id":"38 海洋奇缘", "group":36}];
+{"id":"23 救命解药", "group":36},
+{"id":"24 28岁未成年", "group":21},
+{"id":"25 幽冥", "group":4},
+{"id":"26 鼹鼠之歌2：香港狂骚曲", "group":26},
+{"id":"27 潘多拉", "group":33},
+{"id":"28 性爱娃娃", "group":30},
+{"id":"29 安昙春子下落不明", "group":28},
+{"id":"30 超级快递", "group":34},
+{"id":"31 沉默", "group":30},
+{"id":"32 白百合", "group":35},
+{"id":"33 最萌身高差", "group":32},
+{"id":"34 大创业家", "group":33},
+{"id":"35 黑夜传说5：血战", "group":37},
+{"id":"36 潘菲洛夫28勇士", "group":38},
+{"id":"37 突然20岁", "group":36},
+{"id":"38 海洋奇缘", "group":37}];
 var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制", "value":2, "color": 1},
 {"source":"0 那年夏天你去了哪里", "target": "8 生化危机：终章", "value":6, "color": 1},
 {"source":"0 那年夏天你去了哪里", "target": "9 摆渡人", "value":56, "color": 1},
@@ -67,7 +67,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"0 那年夏天你去了哪里", "target": "21 少年", "value":8, "color": 1},
 {"source":"0 那年夏天你去了哪里", "target": "22 了不起的菲丽西", "value":5, "color": 1},
 {"source":"0 那年夏天你去了哪里", "target": "24 28岁未成年", "value":9, "color": 1},
-{"source":"0 那年夏天你去了哪里", "target": "25 幽冥", "value":1, "color": 1},
+{"source":"0 那年夏天你去了哪里", "target": "25 幽冥", "value":1, "color": 2},
 {"source":"0 那年夏天你去了哪里", "target": "27 潘多拉", "value":2, "color": 1},
 {"source":"0 那年夏天你去了哪里", "target": "30 超级快递", "value":7, "color": 1},
 {"source":"0 那年夏天你去了哪里", "target": "33 最萌身高差", "value":1, "color": 1},
@@ -77,7 +77,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"1 金矿", "target": "4 隐藏人物", "value":7, "color": 1},
 {"source":"1 金矿", "target": "5 夜色人生", "value":5, "color": 1},
 {"source":"1 金矿", "target": "6 梅格雷的亡者", "value":1, "color": 1},
-{"source":"1 金矿", "target": "7 绝对控制", "value":1, "color": 1},
+{"source":"1 金矿", "target": "7 绝对控制", "value":1, "color": 2},
 {"source":"1 金矿", "target": "8 生化危机：终章", "value":3, "color": 1},
 {"source":"1 金矿", "target": "9 摆渡人", "value":9, "color": 1},
 {"source":"1 金矿", "target": "10 为什么是他？", "value":1, "color": 1},
@@ -93,7 +93,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"1 金矿", "target": "20 藩篱", "value":4, "color": 1},
 {"source":"1 金矿", "target": "21 少年", "value":2, "color": 1},
 {"source":"1 金矿", "target": "23 救命解药", "value":4, "color": 1},
-{"source":"1 金矿", "target": "24 28岁未成年", "value":1, "color": 2},
+{"source":"1 金矿", "target": "24 28岁未成年", "value":1, "color": 1},
 {"source":"1 金矿", "target": "25 幽冥", "value":1, "color": 1},
 {"source":"1 金矿", "target": "27 潘多拉", "value":2, "color": 1},
 {"source":"1 金矿", "target": "28 性爱娃娃", "value":1, "color": 1},
@@ -105,14 +105,14 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"1 金矿", "target": "36 潘菲洛夫28勇士", "value":1, "color": 1},
 {"source":"1 金矿", "target": "37 突然20岁", "value":1, "color": 1},
 {"source":"1 金矿", "target": "38 海洋奇缘", "value":2, "color": 1},
-{"source":"2 隐于书后", "target": "1 金矿", "value":1, "color": 2},
+{"source":"2 隐于书后", "target": "1 金矿", "value":1, "color": 1},
 {"source":"2 隐于书后", "target": "4 隐藏人物", "value":4, "color": 1},
 {"source":"2 隐于书后", "target": "5 夜色人生", "value":1, "color": 2},
 {"source":"2 隐于书后", "target": "6 梅格雷的亡者", "value":1, "color": 1},
 {"source":"2 隐于书后", "target": "8 生化危机：终章", "value":2, "color": 1},
 {"source":"2 隐于书后", "target": "9 摆渡人", "value":2, "color": 1},
 {"source":"2 隐于书后", "target": "11 刺客信条", "value":1, "color": 1},
-{"source":"2 隐于书后", "target": "12 太空旅客", "value":1, "color": 1},
+{"source":"2 隐于书后", "target": "12 太空旅客", "value":1, "color": 2},
 {"source":"2 隐于书后", "target": "13 金融决战", "value":1, "color": 1},
 {"source":"2 隐于书后", "target": "14 怪兽卡车", "value":1, "color": 1},
 {"source":"2 隐于书后", "target": "16 罗曼蒂克消亡史", "value":3, "color": 1},
@@ -199,10 +199,10 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"4 隐藏人物", "target": "37 突然20岁", "value":1, "color": 1},
 {"source":"4 隐藏人物", "target": "38 海洋奇缘", "value":11, "color": 1},
 {"source":"5 夜色人生", "target": "1 金矿", "value":5, "color": 1},
-{"source":"5 夜色人生", "target": "2 隐于书后", "value":1, "color": 2},
+{"source":"5 夜色人生", "target": "2 隐于书后", "value":1, "color": 1},
 {"source":"5 夜色人生", "target": "3 分裂", "value":5, "color": 1},
 {"source":"5 夜色人生", "target": "4 隐藏人物", "value":2, "color": 1},
-{"source":"5 夜色人生", "target": "6 梅格雷的亡者", "value":1, "color": 1},
+{"source":"5 夜色人生", "target": "6 梅格雷的亡者", "value":1, "color": 2},
 {"source":"5 夜色人生", "target": "7 绝对控制", "value":2, "color": 1},
 {"source":"5 夜色人生", "target": "8 生化危机：终章", "value":7, "color": 1},
 {"source":"5 夜色人生", "target": "9 摆渡人", "value":12, "color": 1},
@@ -237,9 +237,9 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"6 梅格雷的亡者", "target": "4 隐藏人物", "value":1, "color": 1},
 {"source":"6 梅格雷的亡者", "target": "8 生化危机：终章", "value":2, "color": 1},
 {"source":"6 梅格雷的亡者", "target": "9 摆渡人", "value":2, "color": 1},
-{"source":"6 梅格雷的亡者", "target": "11 刺客信条", "value":1, "color": 1},
+{"source":"6 梅格雷的亡者", "target": "11 刺客信条", "value":1, "color": 2},
 {"source":"6 梅格雷的亡者", "target": "17 长城", "value":2, "color": 1},
-{"source":"6 梅格雷的亡者", "target": "18 星球大战外传：侠盗一号", "value":1, "color": 1},
+{"source":"6 梅格雷的亡者", "target": "18 星球大战外传：侠盗一号", "value":1, "color": 2},
 {"source":"6 梅格雷的亡者", "target": "19 附属美丽", "value":1, "color": 1},
 {"source":"6 梅格雷的亡者", "target": "20 藩篱", "value":1, "color": 1},
 {"source":"6 梅格雷的亡者", "target": "31 沉默", "value":1, "color": 1},
@@ -253,7 +253,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"7 绝对控制", "target": "5 夜色人生", "value":2, "color": 1},
 {"source":"7 绝对控制", "target": "8 生化危机：终章", "value":8, "color": 1},
 {"source":"7 绝对控制", "target": "9 摆渡人", "value":16, "color": 1},
-{"source":"7 绝对控制", "target": "10 为什么是他？", "value":1, "color": 1},
+{"source":"7 绝对控制", "target": "10 为什么是他？", "value":1, "color": 2},
 {"source":"7 绝对控制", "target": "11 刺客信条", "value":7, "color": 1},
 {"source":"7 绝对控制", "target": "12 太空旅客", "value":9, "color": 1},
 {"source":"7 绝对控制", "target": "13 金融决战", "value":3, "color": 1},
@@ -308,7 +308,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"8 生化危机：终章", "target": "29 安昙春子下落不明", "value":3, "color": 1},
 {"source":"8 生化危机：终章", "target": "30 超级快递", "value":8, "color": 1},
 {"source":"8 生化危机：终章", "target": "31 沉默", "value":8, "color": 1},
-{"source":"8 生化危机：终章", "target": "32 白百合", "value":1, "color": 1},
+{"source":"8 生化危机：终章", "target": "32 白百合", "value":1, "color": 2},
 {"source":"8 生化危机：终章", "target": "33 最萌身高差", "value":2, "color": 1},
 {"source":"8 生化危机：终章", "target": "34 大创业家", "value":5, "color": 1},
 {"source":"8 生化危机：终章", "target": "35 黑夜传说5：血战", "value":13, "color": 1},
@@ -356,13 +356,13 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"10 为什么是他？", "target": "5 夜色人生", "value":1, "color": 1},
 {"source":"10 为什么是他？", "target": "7 绝对控制", "value":1, "color": 1},
 {"source":"10 为什么是他？", "target": "8 生化危机：终章", "value":2, "color": 1},
-{"source":"10 为什么是他？", "target": "9 摆渡人", "value":1, "color": 1},
+{"source":"10 为什么是他？", "target": "9 摆渡人", "value":1, "color": 2},
 {"source":"10 为什么是他？", "target": "11 刺客信条", "value":3, "color": 1},
 {"source":"10 为什么是他？", "target": "12 太空旅客", "value":3, "color": 1},
-{"source":"10 为什么是他？", "target": "13 金融决战", "value":1, "color": 1},
-{"source":"10 为什么是他？", "target": "14 怪兽卡车", "value":1, "color": 1},
+{"source":"10 为什么是他？", "target": "13 金融决战", "value":1, "color": 2},
+{"source":"10 为什么是他？", "target": "14 怪兽卡车", "value":1, "color": 2},
 {"source":"10 为什么是他？", "target": "16 罗曼蒂克消亡史", "value":2, "color": 1},
-{"source":"10 为什么是他？", "target": "17 长城", "value":1, "color": 1},
+{"source":"10 为什么是他？", "target": "17 长城", "value":1, "color": 2},
 {"source":"10 为什么是他？", "target": "18 星球大战外传：侠盗一号", "value":2, "color": 1},
 {"source":"10 为什么是他？", "target": "19 附属美丽", "value":1, "color": 1},
 {"source":"10 为什么是他？", "target": "20 藩篱", "value":1, "color": 1},
@@ -493,7 +493,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"14 怪兽卡车", "target": "12 太空旅客", "value":3, "color": 1},
 {"source":"14 怪兽卡车", "target": "13 金融决战", "value":2, "color": 1},
 {"source":"14 怪兽卡车", "target": "2 隐于书后", "value":1, "color": 1},
-{"source":"14 怪兽卡车", "target": "15 明日的我与昨日的你约会", "value":1, "color": 1},
+{"source":"14 怪兽卡车", "target": "15 明日的我与昨日的你约会", "value":1, "color": 2},
 {"source":"14 怪兽卡车", "target": "16 罗曼蒂克消亡史", "value":3, "color": 1},
 {"source":"14 怪兽卡车", "target": "17 长城", "value":6, "color": 1},
 {"source":"14 怪兽卡车", "target": "18 星球大战外传：侠盗一号", "value":3, "color": 1},
@@ -524,8 +524,8 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"15 明日的我与昨日的你约会", "target": "16 罗曼蒂克消亡史", "value":9, "color": 1},
 {"source":"15 明日的我与昨日的你约会", "target": "17 长城", "value":25, "color": 1},
 {"source":"15 明日的我与昨日的你约会", "target": "18 星球大战外传：侠盗一号", "value":3, "color": 1},
-{"source":"15 明日的我与昨日的你约会", "target": "19 附属美丽", "value":1, "color": 1},
-{"source":"15 明日的我与昨日的你约会", "target": "20 藩篱", "value":1, "color": 1},
+{"source":"15 明日的我与昨日的你约会", "target": "19 附属美丽", "value":1, "color": 2},
+{"source":"15 明日的我与昨日的你约会", "target": "20 藩篱", "value":1, "color": 2},
 {"source":"15 明日的我与昨日的你约会", "target": "21 少年", "value":2, "color": 1},
 {"source":"15 明日的我与昨日的你约会", "target": "22 了不起的菲丽西", "value":1, "color": 1},
 {"source":"15 明日的我与昨日的你约会", "target": "23 救命解药", "value":5, "color": 1},
@@ -638,7 +638,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"18 星球大战外传：侠盗一号", "target": "23 救命解药", "value":4, "color": 1},
 {"source":"18 星球大战外传：侠盗一号", "target": "24 28岁未成年", "value":20, "color": 1},
 {"source":"18 星球大战外传：侠盗一号", "target": "25 幽冥", "value":11, "color": 1},
-{"source":"18 星球大战外传：侠盗一号", "target": "26 鼹鼠之歌2：香港狂骚曲", "value":1, "color": 1},
+{"source":"18 星球大战外传：侠盗一号", "target": "26 鼹鼠之歌2：香港狂骚曲", "value":1, "color": 2},
 {"source":"18 星球大战外传：侠盗一号", "target": "27 潘多拉", "value":12, "color": 1},
 {"source":"18 星球大战外传：侠盗一号", "target": "28 性爱娃娃", "value":1, "color": 1},
 {"source":"18 星球大战外传：侠盗一号", "target": "29 安昙春子下落不明", "value":1, "color": 1},
@@ -669,10 +669,10 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"19 附属美丽", "target": "13 金融决战", "value":1, "color": 1},
 {"source":"19 附属美丽", "target": "14 怪兽卡车", "value":1, "color": 1},
 {"source":"19 附属美丽", "target": "20 藩篱", "value":2, "color": 1},
-{"source":"19 附属美丽", "target": "21 少年", "value":1, "color": 1},
-{"source":"19 附属美丽", "target": "22 了不起的菲丽西", "value":1, "color": 1},
+{"source":"19 附属美丽", "target": "21 少年", "value":1, "color": 2},
+{"source":"19 附属美丽", "target": "22 了不起的菲丽西", "value":1, "color": 2},
 {"source":"19 附属美丽", "target": "23 救命解药", "value":1, "color": 1},
-{"source":"19 附属美丽", "target": "24 28岁未成年", "value":1, "color": 1},
+{"source":"19 附属美丽", "target": "24 28岁未成年", "value":1, "color": 2},
 {"source":"19 附属美丽", "target": "25 幽冥", "value":1, "color": 1},
 {"source":"19 附属美丽", "target": "27 潘多拉", "value":1, "color": 1},
 {"source":"19 附属美丽", "target": "28 性爱娃娃", "value":1, "color": 1},
@@ -763,7 +763,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"22 了不起的菲丽西", "target": "5 夜色人生", "value":1, "color": 1},
 {"source":"22 了不起的菲丽西", "target": "21 少年", "value":3, "color": 1},
 {"source":"22 了不起的菲丽西", "target": "0 那年夏天你去了哪里", "value":5, "color": 1},
-{"source":"22 了不起的菲丽西", "target": "23 救命解药", "value":1, "color": 1},
+{"source":"22 了不起的菲丽西", "target": "23 救命解药", "value":1, "color": 2},
 {"source":"22 了不起的菲丽西", "target": "24 28岁未成年", "value":4, "color": 1},
 {"source":"22 了不起的菲丽西", "target": "25 幽冥", "value":1, "color": 1},
 {"source":"22 了不起的菲丽西", "target": "27 潘多拉", "value":2, "color": 1},
@@ -801,7 +801,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"23 救命解药", "target": "33 最萌身高差", "value":1, "color": 1},
 {"source":"23 救命解药", "target": "34 大创业家", "value":4, "color": 1},
 {"source":"23 救命解药", "target": "35 黑夜传说5：血战", "value":5, "color": 1},
-{"source":"23 救命解药", "target": "36 潘菲洛夫28勇士", "value":1, "color": 1},
+{"source":"23 救命解药", "target": "36 潘菲洛夫28勇士", "value":1, "color": 2},
 {"source":"23 救命解药", "target": "37 突然20岁", "value":1, "color": 1},
 {"source":"23 救命解药", "target": "38 海洋奇缘", "value":3, "color": 1},
 {"source":"24 28岁未成年", "target": "9 摆渡人", "value":82, "color": 1},
@@ -823,7 +823,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"24 28岁未成年", "target": "23 救命解药", "value":3, "color": 1},
 {"source":"24 28岁未成年", "target": "13 金融决战", "value":5, "color": 1},
 {"source":"24 28岁未成年", "target": "2 隐于书后", "value":2, "color": 1},
-{"source":"24 28岁未成年", "target": "1 金矿", "value":1, "color": 2},
+{"source":"24 28岁未成年", "target": "1 金矿", "value":1, "color": 1},
 {"source":"24 28岁未成年", "target": "10 为什么是他？", "value":1, "color": 1},
 {"source":"24 28岁未成年", "target": "14 怪兽卡车", "value":2, "color": 1},
 {"source":"24 28岁未成年", "target": "19 附属美丽", "value":1, "color": 1},
@@ -850,8 +850,8 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"25 幽冥", "target": "15 明日的我与昨日的你约会", "value":1, "color": 1},
 {"source":"25 幽冥", "target": "13 金融决战", "value":4, "color": 1},
 {"source":"25 幽冥", "target": "24 28岁未成年", "value":2, "color": 1},
-{"source":"25 幽冥", "target": "1 金矿", "value":1, "color": 1},
-{"source":"25 幽冥", "target": "4 隐藏人物", "value":1, "color": 1},
+{"source":"25 幽冥", "target": "1 金矿", "value":1, "color": 2},
+{"source":"25 幽冥", "target": "4 隐藏人物", "value":1, "color": 2},
 {"source":"25 幽冥", "target": "5 夜色人生", "value":4, "color": 1},
 {"source":"25 幽冥", "target": "7 绝对控制", "value":3, "color": 1},
 {"source":"25 幽冥", "target": "10 为什么是他？", "value":1, "color": 1},
@@ -875,13 +875,13 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"26 鼹鼠之歌2：香港狂骚曲", "target": "11 刺客信条", "value":2, "color": 1},
 {"source":"26 鼹鼠之歌2：香港狂骚曲", "target": "17 长城", "value":3, "color": 1},
 {"source":"26 鼹鼠之歌2：香港狂骚曲", "target": "15 明日的我与昨日的你约会", "value":2, "color": 1},
-{"source":"26 鼹鼠之歌2：香港狂骚曲", "target": "3 分裂", "value":1, "color": 1},
-{"source":"26 鼹鼠之歌2：香港狂骚曲", "target": "8 生化危机：终章", "value":1, "color": 1},
+{"source":"26 鼹鼠之歌2：香港狂骚曲", "target": "3 分裂", "value":1, "color": 2},
+{"source":"26 鼹鼠之歌2：香港狂骚曲", "target": "8 生化危机：终章", "value":1, "color": 2},
 {"source":"26 鼹鼠之歌2：香港狂骚曲", "target": "12 太空旅客", "value":2, "color": 1},
 {"source":"26 鼹鼠之歌2：香港狂骚曲", "target": "13 金融决战", "value":1, "color": 1},
 {"source":"26 鼹鼠之歌2：香港狂骚曲", "target": "18 星球大战外传：侠盗一号", "value":1, "color": 1},
 {"source":"26 鼹鼠之歌2：香港狂骚曲", "target": "25 幽冥", "value":1, "color": 1},
-{"source":"26 鼹鼠之歌2：香港狂骚曲", "target": "27 潘多拉", "value":1, "color": 1},
+{"source":"26 鼹鼠之歌2：香港狂骚曲", "target": "27 潘多拉", "value":1, "color": 2},
 {"source":"26 鼹鼠之歌2：香港狂骚曲", "target": "30 超级快递", "value":1, "color": 1},
 {"source":"27 潘多拉", "target": "8 生化危机：终章", "value":20, "color": 1},
 {"source":"27 潘多拉", "target": "11 刺客信条", "value":11, "color": 1},
@@ -908,11 +908,11 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"27 潘多拉", "target": "22 了不起的菲丽西", "value":2, "color": 1},
 {"source":"27 潘多拉", "target": "0 那年夏天你去了哪里", "value":2, "color": 1},
 {"source":"27 潘多拉", "target": "26 鼹鼠之歌2：香港狂骚曲", "value":1, "color": 1},
-{"source":"27 潘多拉", "target": "28 性爱娃娃", "value":1, "color": 1},
-{"source":"27 潘多拉", "target": "29 安昙春子下落不明", "value":1, "color": 1},
+{"source":"27 潘多拉", "target": "28 性爱娃娃", "value":1, "color": 2},
+{"source":"27 潘多拉", "target": "29 安昙春子下落不明", "value":1, "color": 2},
 {"source":"27 潘多拉", "target": "30 超级快递", "value":6, "color": 1},
 {"source":"27 潘多拉", "target": "31 沉默", "value":4, "color": 1},
-{"source":"27 潘多拉", "target": "33 最萌身高差", "value":1, "color": 1},
+{"source":"27 潘多拉", "target": "33 最萌身高差", "value":1, "color": 2},
 {"source":"27 潘多拉", "target": "34 大创业家", "value":1, "color": 1},
 {"source":"27 潘多拉", "target": "35 黑夜传说5：血战", "value":6, "color": 1},
 {"source":"27 潘多拉", "target": "36 潘菲洛夫28勇士", "value":2, "color": 1},
@@ -931,7 +931,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"28 性爱娃娃", "target": "12 太空旅客", "value":1, "color": 1},
 {"source":"28 性爱娃娃", "target": "13 金融决战", "value":1, "color": 1},
 {"source":"28 性爱娃娃", "target": "14 怪兽卡车", "value":1, "color": 1},
-{"source":"28 性爱娃娃", "target": "16 罗曼蒂克消亡史", "value":1, "color": 1},
+{"source":"28 性爱娃娃", "target": "16 罗曼蒂克消亡史", "value":1, "color": 2},
 {"source":"28 性爱娃娃", "target": "17 长城", "value":1, "color": 1},
 {"source":"28 性爱娃娃", "target": "18 星球大战外传：侠盗一号", "value":1, "color": 1},
 {"source":"28 性爱娃娃", "target": "19 附属美丽", "value":1, "color": 1},
@@ -940,7 +940,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"28 性爱娃娃", "target": "23 救命解药", "value":1, "color": 1},
 {"source":"28 性爱娃娃", "target": "24 28岁未成年", "value":1, "color": 1},
 {"source":"28 性爱娃娃", "target": "27 潘多拉", "value":1, "color": 1},
-{"source":"28 性爱娃娃", "target": "30 超级快递", "value":1, "color": 1},
+{"source":"28 性爱娃娃", "target": "30 超级快递", "value":1, "color": 2},
 {"source":"28 性爱娃娃", "target": "31 沉默", "value":1, "color": 1},
 {"source":"28 性爱娃娃", "target": "34 大创业家", "value":1, "color": 1},
 {"source":"28 性爱娃娃", "target": "35 黑夜传说5：血战", "value":1, "color": 1},
@@ -996,9 +996,9 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"30 超级快递", "target": "0 那年夏天你去了哪里", "value":7, "color": 1},
 {"source":"30 超级快递", "target": "22 了不起的菲丽西", "value":10, "color": 1},
 {"source":"30 超级快递", "target": "26 鼹鼠之歌2：香港狂骚曲", "value":1, "color": 1},
-{"source":"30 超级快递", "target": "31 沉默", "value":1, "color": 1},
+{"source":"30 超级快递", "target": "31 沉默", "value":1, "color": 2},
 {"source":"30 超级快递", "target": "33 最萌身高差", "value":10, "color": 1},
-{"source":"30 超级快递", "target": "34 大创业家", "value":1, "color": 1},
+{"source":"30 超级快递", "target": "34 大创业家", "value":1, "color": 2},
 {"source":"30 超级快递", "target": "35 黑夜传说5：血战", "value":1, "color": 1},
 {"source":"30 超级快递", "target": "38 海洋奇缘", "value":18, "color": 1},
 {"source":"31 沉默", "target": "9 摆渡人", "value":11, "color": 1},
@@ -1037,7 +1037,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"31 沉默", "target": "38 海洋奇缘", "value":2, "color": 1},
 {"source":"32 白百合", "target": "18 星球大战外传：侠盗一号", "value":1, "color": 1},
 {"source":"32 白百合", "target": "8 生化危机：终章", "value":1, "color": 1},
-{"source":"32 白百合", "target": "35 黑夜传说5：血战", "value":1, "color": 1},
+{"source":"32 白百合", "target": "35 黑夜传说5：血战", "value":1, "color": 2},
 {"source":"33 最萌身高差", "target": "24 28岁未成年", "value":6, "color": 1},
 {"source":"33 最萌身高差", "target": "3 分裂", "value":3, "color": 1},
 {"source":"33 最萌身高差", "target": "11 刺客信条", "value":8, "color": 1},
@@ -1122,7 +1122,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"35 黑夜传说5：血战", "target": "30 超级快递", "value":1, "color": 1},
 {"source":"35 黑夜传说5：血战", "target": "34 大创业家", "value":2, "color": 1},
 {"source":"35 黑夜传说5：血战", "target": "36 潘菲洛夫28勇士", "value":2, "color": 1},
-{"source":"35 黑夜传说5：血战", "target": "37 突然20岁", "value":1, "color": 1},
+{"source":"35 黑夜传说5：血战", "target": "37 突然20岁", "value":1, "color": 2},
 {"source":"35 黑夜传说5：血战", "target": "38 海洋奇缘", "value":6, "color": 1},
 {"source":"36 潘菲洛夫28勇士", "target": "34 大创业家", "value":2, "color": 1},
 {"source":"36 潘菲洛夫28勇士", "target": "16 罗曼蒂克消亡史", "value":2, "color": 1},
@@ -1146,7 +1146,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"36 潘菲洛夫28勇士", "target": "10 为什么是他？", "value":1, "color": 1},
 {"source":"36 潘菲洛夫28勇士", "target": "21 少年", "value":1, "color": 1},
 {"source":"36 潘菲洛夫28勇士", "target": "37 突然20岁", "value":2, "color": 1},
-{"source":"36 潘菲洛夫28勇士", "target": "38 海洋奇缘", "value":1, "color": 1},
+{"source":"36 潘菲洛夫28勇士", "target": "38 海洋奇缘", "value":1, "color": 2},
 {"source":"37 突然20岁", "target": "31 沉默", "value":1, "color": 1},
 {"source":"37 突然20岁", "target": "5 夜色人生", "value":1, "color": 1},
 {"source":"37 突然20岁", "target": "2 隐于书后", "value":1, "color": 1},
@@ -1198,8 +1198,7 @@ var links =[{"source":"0 那年夏天你去了哪里", "target": "7 绝对控制
 {"source":"38 海洋奇缘", "target": "31 沉默", "value":2, "color": 1},
 {"source":"38 海洋奇缘", "target": "36 潘菲洛夫28勇士", "value":1, "color": 1},
 {"source":"38 海洋奇缘", "target": "0 那年夏天你去了哪里", "value":4, "color": 1}
-];
-var svg = d3.select("svg"),
+];var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
@@ -1209,28 +1208,13 @@ var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(200))
     .force("charge", d3.forceManyBody().strength(-80).distanceMax(100).distanceMin(10))
     .force("center", d3.forceCenter(width / 2, height / 2))
-
+	
   var link = svg
     .selectAll("line")
     .data(links)
     .enter().append("line")
-    .attr("stroke-width", function(d) 
-	{
-		//return Math.sqrt(d.value); 
-		if(d.color==2)
-			var width = 7;
-        else
-			var width = 3;		
-		return width;
-	})
-	.style("stroke",function(d)
-	  {
-		if(d.color==2)
-			var color = d3.rgb("rgb(24,158,243)");
-        else
-			var color = d3.rgb("rgb(233,233,233)");		
-		return color;
-	  })
+    .attr("stroke-width", 2)
+	.style("stroke",d3.rgb("rgb(165,158,243)"))
 	.style("opacity",function(d)
 	  {
 		if(d.color==2)
@@ -1243,14 +1227,7 @@ var simulation = d3.forceSimulation()
     .selectAll("circle")
     .data(nodes)
     .enter().append("circle")
-      .attr("r", function(d)
-	  {
-		if(d.group!=1)
-			var r = 5;
-        else
-			var r = 10;	
-		return r;
-	  })
+      .attr("r", 7)
       .attr("fill", function(d) { return color(d.group); })
       .call(d3.drag()
           .on("start", dragstarted)

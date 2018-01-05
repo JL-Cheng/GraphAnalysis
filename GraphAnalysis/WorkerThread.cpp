@@ -49,6 +49,14 @@ void WorkerThread::run()
 			//ËÑÑ°×î¶ÌÂ·¾¶
 			search_shortest_path->search(start_ID, end_ID);
 			break;
+		case 2:
+			newTree.findST();
+			emit finishPrim();
+			break;
+		case 3:
+			newComponent.changeThreshold(0);
+			emit finishConnected_component();
+			break;
 		}
 		return;
 	}

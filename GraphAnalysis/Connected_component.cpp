@@ -11,8 +11,7 @@ connected_component::connected_component()
 	}
 	threshold = 0;
 	length = 0;
-	findST();
-	print();
+
 }
 
 connected_component::~connected_component()
@@ -31,7 +30,6 @@ void connected_component::changeThreshold(int thre)
 	threshold = thre;
 	length = 0;
 	findST();
-	print();
 }
 
 void connected_component::findST()
@@ -53,6 +51,7 @@ void connected_component::findST()
 			find(feature, last, i, 0, n);
 		}
 	}
+	print();
 	delete[] feature;
 	delete[] last;
 }
@@ -66,6 +65,7 @@ void connected_component::find(int* feature, int* last, int start, int num, int 
 	}
 	else
 	{
+		msleep(3);
 		int min = INT_MAX;
 		int end = INT_MAX;
 		for(int i = 0; i<n; i++)
@@ -99,8 +99,8 @@ void connected_component::find(int* feature, int* last, int start, int num, int 
 		x->first = last[end];
 		x->second = end;
 		cout << "[" << last[end] << "->" << end << "]";
-		extractInformation::list[x->first].group = 1;
-		extractInformation::list[x->second].group = 1;
+		extractInformation::list[x->first].group = num + 1;
+		extractInformation::list[x->second].group = num;
 		tree.push_back(x);
 		num ++;
 		length += min;
@@ -112,8 +112,28 @@ void connected_component::find(int* feature, int* last, int start, int num, int 
 
 void connected_component::print()
 {
-	ofstream outfile("connected_component.json");
-	outfile << "{" << endl << "\"nodes\":[" << endl;
+	string tempLine, text1 = "", text2 = "";
+
+	ifstream infile1("text1.txt");
+	if (!infile1.is_open())//打开文件失败，返回
+		exit(-1);
+	while (getline(infile1, tempLine))
+	{
+		text1 += tempLine + "\n";
+	}
+
+	ifstream infile2("connected_component_text2.txt");
+	if (!infile2.is_open())//打开文件失败，返回
+		exit(-1);
+	while (getline(infile2, tempLine))
+	{
+		text2 += tempLine + "\n";
+	}
+	ofstream outfile("connected_component.html");
+	outfile << text1;
+
+	outfile << "var nodes=[" << endl;
+
 	int num = extractInformation::list.size();
 	for (int i = 0; i < num; i++)
 	{
@@ -125,7 +145,7 @@ void connected_component::print()
 		outfile << extractInformation::list[i].group;
 		outfile << "}";
 	}
-	outfile << "]," << endl << "\"links\":[";
+	outfile << "];" << endl << "var links =[";
 	for (int i = 0; i < num; i++)
 	{
 		for (int j = 0; j < extractInformation::list[i].connectNode.size(); j++)
@@ -158,5 +178,10 @@ void connected_component::print()
 			}
 		}
 	}
-	outfile << endl << "]" << endl << "}";
+	outfile << endl << "];";
+	outfile << text2;
+
+	outfile.close();
+	infile1.close();
+	infile2.close();
 }

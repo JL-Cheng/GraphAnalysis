@@ -3,10 +3,12 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include<QObject>
+#include <QThread>
 #include "ExtractInformation.h"
 using namespace std;
 
-class prim
+class prim :public QThread
 {
 public:
 	prim();
@@ -16,8 +18,10 @@ public:
 	int length; //	路径总长度
 
 	void findST();	//	将最小生成树存在tree里面，主函数
+
+private:
 	void find(int* feature, int* last, int start, int num, int n);	//	递归操作
-	void print();	//	输出到json
+	void print();	//	输出到html
 };
 
 
