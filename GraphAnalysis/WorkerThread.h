@@ -16,8 +16,9 @@ class WorkerThread : public QThread
 	Q_OBJECT
 
 public:
-	WorkerThread(int startPoint, int endPoint, QObject *parent = 0);
+	WorkerThread(int startPoint, int endPoint,int number, QObject *parent = 0);
 	WorkerThread(int number, QObject *parent = 0);
+	WorkerThread(int thresholdNum,int number, QObject *parent = 0);
 	~WorkerThread();
 
 protected:
@@ -47,6 +48,7 @@ signals:
 private:
 	int status;//进程状态（0为信息提取，1为最短路径搜寻,2为最小生成树，3为连通分支）
 	int start_ID, end_ID;//最短路径中开始与结束结点
+	int threshold;//阈值
 	searchShortestPath *search_shortest_path;//最短路径											
 	prim newTree; //最小生成树			  
 	connected_component newComponent;//连通分支

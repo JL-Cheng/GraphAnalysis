@@ -46,7 +46,7 @@ public:
 
 	void startSearchShortestPathThread(int startPoint,int endPoint);//开启搜寻最短路径的线程
 	void startPrimThread();//开启最小生成树生成线程
-	void startConnected_componentThread();//开启连通分支生成线程
+	void startConnected_componentThread(int threshold);//开启连通分支生成线程
 	void startExtractInformationThread();//开启信息提取的线程
 
 private:

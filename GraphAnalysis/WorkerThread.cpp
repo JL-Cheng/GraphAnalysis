@@ -1,6 +1,6 @@
 #include"WorkerThread.h"
 
-WorkerThread::WorkerThread(int startPoint, int endPoint, QObject *parent)
+WorkerThread::WorkerThread(int startPoint, int endPoint,int number, QObject *parent)
 	:QThread(parent)
 {
 	start_ID = startPoint;
@@ -11,6 +11,12 @@ WorkerThread::WorkerThread(int startPoint, int endPoint, QObject *parent)
 		this, &WorkerThread::getResult);
 }
 
+WorkerThread::WorkerThread(int thresholdNum, int number, QObject *parent)
+	:QThread(parent)
+{
+	threshold = thresholdNum;
+	status = 3;
+}
 WorkerThread::WorkerThread(int number, QObject *parent)
 	:QThread(parent),
 	status(number)
@@ -54,7 +60,7 @@ void WorkerThread::run()
 			emit finishPrim();
 			break;
 		case 3:
-			newComponent.changeThreshold(0);
+			newComponent.changeThreshold(threshold);
 			emit finishConnected_component();
 			break;
 		}

@@ -33,8 +33,8 @@ MainWindow::MainWindow(QWidget *parent)
 		this, SLOT(changeToSelectWindow()));
 
 	//连接连通分支信号槽
-	connect(selectWindow->connectedComponentButton, SIGNAL(clicked()),
-		this, SLOT(startConnected_componentThread()));
+	connect(connected_componentWindow, &Connected_componentWindow::searchConnected_component,
+		this,&MainWindow::startConnected_componentThread);
 	connect(connected_componentWindow->returnButton, SIGNAL(clicked()),
 		this, SLOT(changeToSelectWindow()));
 
@@ -67,7 +67,7 @@ void MainWindow::init()
 
 void MainWindow::startSearchShortestPathThread(int startPoint, int endPoint)
 {
-	WorkerThread *workerThread = new WorkerThread(startPoint, endPoint, this);
+	WorkerThread *workerThread = new WorkerThread(startPoint, endPoint,1, this);
 	connect(workerThread, &WorkerThread::sendResult,
 		shortestPathWindow, &ShortestPathWindow::showResult);
 	// 线程结束后，自动销毁
@@ -99,9 +99,9 @@ void MainWindow::startPrimThread()
 	workerThread->start();
 }
 
-void MainWindow::startConnected_componentThread()
+void MainWindow::startConnected_componentThread(int threshold)
 {
-	WorkerThread *workerThread = new WorkerThread(3, this);
+	WorkerThread *workerThread = new WorkerThread(threshold,3, this);
 	connect(workerThread, &WorkerThread::finishConnected_component,
 		connected_componentWindow, &Connected_componentWindow::showResult);
 	// 线程结束后，自动销毁
