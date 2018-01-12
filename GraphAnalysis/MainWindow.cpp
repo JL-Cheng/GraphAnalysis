@@ -19,6 +19,8 @@ MainWindow::MainWindow(QWidget *parent)
 		this, SLOT(changeToPrimWindow()));
 	connect(selectWindow->connectedComponentButton, SIGNAL(clicked()),
 		this, SLOT(changeToConnected_componentWindow()));
+	connect(selectWindow->degreeCentralityButton, SIGNAL(clicked()),
+		this, SLOT(changeToBetweennessWindow()));
 
 	//连接最短路径相关信号槽
 	connect(shortestPathWindow, &ShortestPathWindow::searchShortestPath,
@@ -38,6 +40,12 @@ MainWindow::MainWindow(QWidget *parent)
 	connect(connected_componentWindow->returnButton, SIGNAL(clicked()),
 		this, SLOT(changeToSelectWindow()));
 
+	//连接介数中心度信号槽
+	connect(selectWindow->degreeCentralityButton, SIGNAL(clicked()),
+		this, SLOT(startBetweennessThread()));
+	connect(degreeCentralityWindow->returnButton, SIGNAL(clicked()),
+		this, SLOT(changeToSelectWindow()));
+
 	startExtractInformationThread();//开始信息提取进程
 }
 
@@ -49,6 +57,7 @@ void MainWindow::init()
 	shortestPathWindow = new ShortestPathWindow(this);
 	primWindow = new PrimWindow(this);
 	connected_componentWindow = new Connected_componentWindow(this);
+	degreeCentralityWindow = new betweennessWindow(this);
 	backgroundController = new QStackedWidget(this);
 
 	//将页面设置为中心窗口
@@ -60,19 +69,10 @@ void MainWindow::init()
 	backgroundController->addWidget(shortestPathWindow);
 	backgroundController->addWidget(primWindow);
 	backgroundController->addWidget(connected_componentWindow);
+	backgroundController->addWidget(degreeCentralityWindow);
 
 	//设置界面为加载界面
 	backgroundController->setCurrentIndex(0);
-}
-
-void MainWindow::startSearchShortestPathThread(int startPoint, int endPoint)
-{
-	WorkerThread *workerThread = new WorkerThread(startPoint, endPoint,1, this);
-	connect(workerThread, &WorkerThread::sendResult,
-		shortestPathWindow, &ShortestPathWindow::showResult);
-	// 线程结束后，自动销毁
-	connect(workerThread, SIGNAL(finished()), workerThread, SLOT(deleteLater()));
-	workerThread->start();
 }
 
 void MainWindow::startExtractInformationThread()
@@ -84,6 +84,16 @@ void MainWindow::startExtractInformationThread()
 		loadWindow, &LoadWindow::getRateOfProgress);
 	connect(workerThread, &WorkerThread::changeWindow,
 		this, &MainWindow::changeToSelectWindow);
+	// 线程结束后，自动销毁
+	connect(workerThread, SIGNAL(finished()), workerThread, SLOT(deleteLater()));
+	workerThread->start();
+}
+
+void MainWindow::startSearchShortestPathThread(int startPoint, int endPoint)
+{
+	WorkerThread *workerThread = new WorkerThread(startPoint, endPoint, 1, this);
+	connect(workerThread, &WorkerThread::sendResult,
+		shortestPathWindow, &ShortestPathWindow::showResult);
 	// 线程结束后，自动销毁
 	connect(workerThread, SIGNAL(finished()), workerThread, SLOT(deleteLater()));
 	workerThread->start();
@@ -104,6 +114,16 @@ void MainWindow::startConnected_componentThread(int threshold)
 	WorkerThread *workerThread = new WorkerThread(threshold,3, this);
 	connect(workerThread, &WorkerThread::finishConnected_component,
 		connected_componentWindow, &Connected_componentWindow::showResult);
+	// 线程结束后，自动销毁
+	connect(workerThread, SIGNAL(finished()), workerThread, SLOT(deleteLater()));
+	workerThread->start();
+}
+
+void MainWindow::startBetweennessThread()
+{
+	WorkerThread *workerThread = new WorkerThread(4, this);
+	connect(workerThread, &WorkerThread::finishBetweenness,
+		degreeCentralityWindow, &betweennessWindow::showResult);
 	// 线程结束后，自动销毁
 	connect(workerThread, SIGNAL(finished()), workerThread, SLOT(deleteLater()));
 	workerThread->start();

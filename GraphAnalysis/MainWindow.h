@@ -9,6 +9,7 @@
 #include"SelectWindow.h"
 #include"ShortestPathWindow.h"
 #include"PrimWindow.h"
+#include"betweennessWindow.h"
 #include"LoadWindow.h"
 #include"ShortestPath.h"
 #include"prim.h"
@@ -39,6 +40,10 @@ public:
 	{
 		backgroundController->setCurrentIndex(4);
 	}
+	inline void changeToBetweennessWindow()//切换到介数中心度界面
+	{
+		backgroundController->setCurrentIndex(5);
+	}
 	inline void changeToSelectWindow()//切换到选择界面
 	{
 		backgroundController->setCurrentIndex(1);
@@ -46,6 +51,7 @@ public:
 
 	void startSearchShortestPathThread(int startPoint,int endPoint);//开启搜寻最短路径的线程
 	void startPrimThread();//开启最小生成树生成线程
+	void startBetweennessThread();//开启介数中心度生成线程
 	void startConnected_componentThread(int threshold);//开启连通分支生成线程
 	void startExtractInformationThread();//开启信息提取的线程
 
@@ -60,6 +66,7 @@ private:
 	SelectWindow *selectWindow;//选择界面
 	ShortestPathWindow *shortestPathWindow;//最短路径界面
 	PrimWindow *primWindow;//最小生成树界面
-	Connected_componentWindow *connected_componentWindow;//连通分支线程
+	Connected_componentWindow *connected_componentWindow;//连通分支界面
+	betweennessWindow *degreeCentralityWindow;//介数中心度界面
 
 };

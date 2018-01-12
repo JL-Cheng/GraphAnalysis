@@ -63,6 +63,10 @@ void WorkerThread::run()
 			newComponent.changeThreshold(threshold);
 			emit finishConnected_component();
 			break;
+		case 4:
+			newBetweenness.sumWayNum();
+			emit finishBetweenness();
+			break;
 		}
 		return;
 	}

@@ -47,6 +47,17 @@ void LoadWindow::getRateOfProgress(int num)
 void LoadWindow::resizeEvent(QResizeEvent *event)
 {
 	Q_UNUSED(event);//±ÜÃâ±àÒëÆ÷±¨¾¯
+	this->setAutoFillBackground(true);//×Ô¶¯Ìî³ä±³¾°
+
+	//Ìí¼Ó±³¾°
+	QImage image;
+	QPalette palette;
+	image.load(":/backgrounds/Resources/backgrounds/background.bmp");//¼ÓÔØ±³¾°Í¼Æ¬
+
+	palette.setBrush(this->backgroundRole(),
+		QBrush(image.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation)));//ÉèÖÃ±³¾°»­Ë¢
+
+	this->setPalette(palette);
 
 	//Ê¹ÎÄ±¾¿ò×ÔÊÊÓ¦
 	showLabel->setGeometry(geometry().x() + geometry().width() / 2 - 120, geometry().y() + geometry().height() - 220, 350, 50);
