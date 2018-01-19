@@ -65,7 +65,8 @@ void WorkerThread::run()
 			break;
 		case 4:
 			newBetweenness.sumWayNum();
-			emit finishBetweenness();
+			newConnectness.sumWayNum();
+			emit finishBetweennessAndConnectness();
 			break;
 		}
 		return;

@@ -1,3 +1,5 @@
+//最小生成树实现的prim算法类
+
 #ifndef PRIM_H
 #define PRIM_H
 #include <iostream>

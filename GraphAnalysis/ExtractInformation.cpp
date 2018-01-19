@@ -116,11 +116,28 @@ void extractInformation::operate()
 		}
 
 	}
+
+	for (int i = 0; i < list.size(); i++)
+	{
+		vector<pair<int, int>>::iterator it1,it2;
+		if (list[i].connectNode.size() >=10 )
+		{
+			for (it1 = list[i].connectNode.begin()+3; it1 != list[i].connectNode.end();)
+			{
+				for (it2 = list[it1->first].connectNode.begin(); it2 != list[it1->first].connectNode.end()&&it2->first != i; it2++);
+					it2 = list[it1->first].connectNode.erase(it2);
+				it1 = list[i].connectNode.erase(it1);
+
+			}
+		}
+	}
+
+	print();
 }
 
 void extractInformation::print()
 {
-	ofstream outfile("test.json");
+	ofstream outfile("GraphData.json");
 	outfile << "{" << endl << "\"nodes\":[" << endl;
 	for (int i = 0; i < list.size(); i++)
 	{

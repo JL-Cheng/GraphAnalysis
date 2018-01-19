@@ -72,6 +72,7 @@
     <ClCompile Include="betweennessWindow.cpp" />
     <ClCompile Include="Connected_component.cpp" />
     <ClCompile Include="Connected_componentWindow.cpp" />
+    <ClCompile Include="connectness.cpp" />
     <ClCompile Include="ExtractInformation.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_betweennessWindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
@@ -223,6 +224,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtWebEngineWidgets"</Command>
     </CustomBuild>
+    <ClInclude Include="connectness.h" />
     <ClInclude Include="GeneratedFiles\ui_betweennessWindow.h" />
     <ClInclude Include="GeneratedFiles\ui_Connected_componentWindow.h" />
     <ClInclude Include="GeneratedFiles\ui_LoadWindow.h" />

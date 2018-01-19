@@ -2,4 +2,10 @@
     <qresource prefix="/backgrounds">
         <file>Resources/backgrounds/background.bmp</file>
     </qresource>
+    <qresource prefix="/buttons">
+        <file>Resources/buttons/connectedComponentButton.bmp</file>
+        <file>Resources/buttons/minimumSpanningTreeButton.bmp</file>
+        <file>Resources/buttons/shortestPathButton.bmp</file>
+        <file>Resources/buttons/centrad.bmp</file>
+    </qresource>
 </RCC>

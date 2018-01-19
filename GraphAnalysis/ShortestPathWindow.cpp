@@ -1,14 +1,14 @@
-#include "ShortestPathWindow.h"
+ï»¿#include "ShortestPathWindow.h"
 
 ShortestPathWindow::ShortestPathWindow(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
 
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	init();
 
-	//µã»÷Á¬½Ó°´Å¥ºó½øĞĞËÑË÷
+	//ç‚¹å‡»è¿æ¥æŒ‰é’®åè¿›è¡Œæœç´¢
 	connect(searchButton, SIGNAL(clicked()), this, SLOT(sendSearchSignal()));
 
 	websiteShowWindow->showWeb("");
@@ -22,10 +22,13 @@ void ShortestPathWindow::init()
 {
 	startPointLabel = new QLineEdit(this);
 	endPointLabel = new QLineEdit(this);
-	resultLabel = new QLabel(this);
+	resultEdit = new QTextEdit(this);
 	searchButton = new QPushButton("Search",this);
 	returnButton = new QPushButton("Return", this);
 	websiteShowWindow = new WebsiteShow(this);
+
+	resultEdit->setFocusPolicy(Qt::NoFocus);
+	resultEdit->setStyleSheet("background-color:rgb(233,233,233)");
 
 }
 
@@ -33,22 +36,31 @@ void ShortestPathWindow::sendSearchSignal()
 {
 	int start_ID = startPointLabel->text().toInt();
 	int end_ID = endPointLabel->text().toInt();
-	emit searchShortestPath(start_ID, end_ID);
+	if (start_ID < totalNumber&&end_ID < totalNumber)
+	{
+		resultEdit->setText("è®¡ç®—ä¸­ï¼Œè¯·ç¨ç­‰ã€‚ã€‚ã€‚");
+		emit searchShortestPath(start_ID, end_ID);
+	}
+	else
+	{
+		resultEdit->setText("è¾“å…¥é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼");
+	}
+
 }
 
 void ShortestPathWindow::showResult(QString result)
 {
-	resultLabel->setText(result);
+	resultEdit->setText(result);
 	websiteShowWindow->showWeb("file:///shortestPath.html");
 	websiteShowWindow->show();
-	resultLabel->show();
+	resultEdit->show();
 }
 
 void ShortestPathWindow::getTotalNumber(int number)
 {
 	totalNumber = number;
-	startPointLabel->setPlaceholderText(QString("ÇëÊäÈëÆğµã,n<%1").arg(totalNumber));
-	endPointLabel->setPlaceholderText(QString("ÇëÊäÈëÖÕµã,n<%1").arg(totalNumber));
+	startPointLabel->setPlaceholderText(QString("è¯·è¾“å…¥èµ·ç‚¹,n<%1").arg(totalNumber));
+	endPointLabel->setPlaceholderText(QString("è¯·è¾“å…¥ç»ˆç‚¹,n<%1").arg(totalNumber));
 }
 
 void ShortestPathWindow::resizeEvent(QResizeEvent *event)
@@ -56,7 +68,7 @@ void ShortestPathWindow::resizeEvent(QResizeEvent *event)
 	startPointLabel->setGeometry(5, 5, geometry().width() / 4 - 5, geometry().height() / 30);
 	endPointLabel->setGeometry(geometry().width() / 4 + 5, 5, geometry().width() / 4 - 5, geometry().height() / 30);
 	searchButton->setGeometry(geometry().width() / 2 + 5, 5, geometry().width() / 4 - 5, geometry().height() / 30);
-	resultLabel->setGeometry(5, geometry().height() / 30 + 5, geometry().width() - 10, geometry().height() / 30);
+	resultEdit->setGeometry(5, geometry().height() / 30 + 7, geometry().width() - 10, geometry().height() / 30);
 	websiteShowWindow->setGeometry(5, geometry().height() / 15 + 10, geometry().width() - 10, geometry().height() * 12 / 15);
 	returnButton->setGeometry(geometry().width() *3 / 8, geometry().height() * 13 / 15 + 25, geometry().width() / 4, geometry().height() / 30);
 }

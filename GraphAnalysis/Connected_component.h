@@ -1,3 +1,5 @@
+//连通分量实现类
+
 #ifndef CONNECTED_COMPONENT_H
 #define CONNECTED_COMPONENT_H
 

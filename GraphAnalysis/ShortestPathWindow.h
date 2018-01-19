@@ -6,6 +6,7 @@
 #include "ui_ShortestPathWindow.h"
 
 #include<QLabel>
+#include<QTextEdit>
 #include<QLineEdit>
 #include<QPushButton>
 #include<QResizeEvent>
@@ -39,7 +40,7 @@ private:
 
 	QLineEdit *startPointLabel;//输入出发点的控件
 	QLineEdit *endPointLabel;//输入结束点的控件
-	QLabel *resultLabel;//结果显示控件
+	QTextEdit *resultEdit;//结果显示控件
 	QPushButton *searchButton;//搜索按钮
 
 	int totalNumber;//总结点数

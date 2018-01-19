@@ -18,7 +18,7 @@ Connected_componentWindow::~Connected_componentWindow()
 
 void Connected_componentWindow::init()
 {
-	progressLabel = new QLabel("计算中，请稍等...", this);
+	progressLabel = new QLabel("请输入阈值", this);
 	websiteShowWindow = new WebsiteShow(this);
 	returnButton = new QPushButton("Return", this);
 	thresholdLabel = new QLineEdit(this);
@@ -38,6 +38,7 @@ void Connected_componentWindow::showResult()
 
 void Connected_componentWindow::sendSearchSignal()
 {
+	progressLabel->setText(QString("计算中，请稍等。。。"));
 	threshold = thresholdLabel->text().toInt();
 	emit searchConnected_component(threshold);
 }

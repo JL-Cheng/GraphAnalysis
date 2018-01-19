@@ -7,6 +7,7 @@
 #include"ShortestPath.h"
 #include"prim.h"
 #include"betweenness.h"
+#include"connectness.h"
 #include"Connected_component.h"
 
 class searchShortestPath;
@@ -46,7 +47,7 @@ signals:
 
 	void finishConnected_component();//连通分支已生成
 
-	void finishBetweenness();//介数中心度已生成
+	void finishBetweennessAndConnectness();//中心度已生成
 
 private:
 	int status;//进程状态（0为信息提取，1为最短路径搜寻,2为最小生成树，3为连通分支，4为介数中心度）
@@ -54,7 +55,8 @@ private:
 	int threshold;//阈值
 	searchShortestPath *search_shortest_path;//最短路径											
 	prim newTree; //最小生成树	
-	betweenness newBetweenness;
+	betweenness newBetweenness;//介数中心度
+	connectness newConnectness;//连接中心度
 	connected_component newComponent;//连通分支
 
 	extractInformation *information;//存储结点与边的信息

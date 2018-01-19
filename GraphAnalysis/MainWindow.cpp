@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 	//设置窗口属性
 	this->resize(1200, 900);
+	this->setFixedSize(1150, 900);
 	this->setWindowTitle("Graph Analysis");
 
 	//创建按钮选择界面的信号槽
@@ -122,7 +123,7 @@ void MainWindow::startConnected_componentThread(int threshold)
 void MainWindow::startBetweennessThread()
 {
 	WorkerThread *workerThread = new WorkerThread(4, this);
-	connect(workerThread, &WorkerThread::finishBetweenness,
+	connect(workerThread, &WorkerThread::finishBetweennessAndConnectness,
 		degreeCentralityWindow, &betweennessWindow::showResult);
 	// 线程结束后，自动销毁
 	connect(workerThread, SIGNAL(finished()), workerThread, SLOT(deleteLater()));

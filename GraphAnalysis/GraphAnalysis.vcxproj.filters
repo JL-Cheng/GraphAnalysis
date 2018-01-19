@@ -154,6 +154,9 @@
     <ClCompile Include="betweenness.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="connectness.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="MainWindow.h">
@@ -249,6 +252,9 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="betweenness.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="connectness.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
